@@ -4,6 +4,7 @@ alias ls='ls -aL'
 alias e='exit'
 
 # Begin git util functions
+
 gg() {
     git add . && git commit -m "$@" && git push
 }
@@ -12,15 +13,9 @@ ga() {
     git add . && git commit --amend && git push -f
 }
 
-gs() {
-    git add . && git commit -m "$@"
-}
-
+alias gs='git status'
 alias gb='git branch'
-
-pp() {
-    git pull
-}
+alias pp='git pull'
 
 # End git util functions
 
