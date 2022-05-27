@@ -36,12 +36,16 @@ listeningkill() {
 
 parse_git_branch() {
     b=$(git branch --show-current 2> /dev/null) || return
+
+    l='['
     if [[ $b = 'master' ]]; then
-        echo "[\e[31m$b\e[0m] "
+        l+="\\033[31m"
     else
-        echo "[\e[36m$b\e[0m] "
+        l+="\\033[36m"
     fi
 
+    l+="$b\\033[0m] "
+    echo $l
 }
 
 set -o PROMPT_SUBST
