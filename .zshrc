@@ -34,6 +34,15 @@ listeningkill() {
     echo "dead."
 }
 
+clean-copied-json() {
+    res=$(pbpaste)
+    res=$(echo $res | sed 's/"\(.*\)":/\1:/g')
+    res=$(echo $res | sed 's/"\(202.*Z\)",/new Date("\1"),/g')
+    res=$(echo $res | sed "s/\"/'/g")
+    echo $res
+    pbcopy <<< $res
+}
+
 parse_git_branch() {
     b=$(git branch --show-current 2> /dev/null) || return
 
