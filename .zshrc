@@ -48,17 +48,19 @@ parse_git_branch() {
 
     l='['
     if [[ $b = 'master' ]]; then
-        l+="\\033[31m"
+        l+='%F{red}'
     else
-        l+="\\033[36m"
+        l+='%F{cyan}'
     fi
 
-    l+="$b\\033[0m] "
+    l+=$b'%f] '
     echo $l
 }
 
-set -o PROMPT_SUBST
-export PS1='$(parse_git_branch)$(whoami)@ %~ %# '
+setopt prompt_subst
+PROMPT=$'$(parse_git_branch)$(whoami)@ %~ %# '
+
+#precmd_functions+=(prompt)
 
 echo "Ayy lmao"
 
