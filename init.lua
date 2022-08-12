@@ -271,4 +271,23 @@ usbWatcher = hs.screen.watcher.new(function()
   print("switched to move", mode)
 end):start()
 
+function toggleScrollDirection()
+  script = [[
+    tell application "System Preferences"
+    reveal anchor "trackpadTab" of pane id "com.apple.preference.trackpad"
+    end tell
+
+    tell application "System Events" to tell process "System Preferences"
+        click checkbox 1 of tab group 1 of window 0
+    end tell
+
+    quit application "System Preferences"
+
+    return input
+  ]]
+  hs.osascript.applescript(script)
+end
+
+hs.hotkey.bind(mash, "\\", toggleScrollDirection)
+
 alert("Config loaded")
