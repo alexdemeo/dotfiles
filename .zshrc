@@ -1,5 +1,5 @@
 alias resource='source ~/.zshrc'
-alias zrc='vim ~/dotfiles/.zshrc'
+alias zrc='vim ~/.zshrc'
 alias ls='ls -aL'
 alias e='exit'
 
