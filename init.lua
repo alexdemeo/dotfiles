@@ -273,17 +273,21 @@ end):start()
 
 function toggleScrollDirection()
   script = [[
-    tell application "System Preferences"
-    reveal anchor "trackpadTab" of pane id "com.apple.preference.trackpad"
+    tell application "System Settings"
+      do shell script "open x-apple.systempreferences:com.apple.Trackpad-Settings.extension"
     end tell
 
-    tell application "System Events" to tell process "System Preferences"
-        click checkbox 1 of tab group 1 of window 0
+    delay 0.5
+
+    tell application "System Events" to tell process "System Settings"
+      click radio button 2 of tab group 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Trackpad"
+      click checkbox 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Trackpad"
     end tell
 
-    quit application "System Preferences"
+    delay 0.5
 
-    return input
+    quit application "System Settings"
+
   ]]
   hs.osascript.applescript(script)
 end
