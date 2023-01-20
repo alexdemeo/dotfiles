@@ -30,7 +30,7 @@ listening() {
 listeningkill() {
     pid=$(listening $1 | awk '{print $2}')
     echo "killing $pid"
-    kill $pid
+    kill -9 $pid
     echo "dead."
 }
 
