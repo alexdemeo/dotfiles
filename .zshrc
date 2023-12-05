@@ -47,7 +47,7 @@ parse_git_branch() {
     b=$(git branch --show-current 2> /dev/null) || return
 
     l='['
-    if [[ $b = 'master' ]]; then
+    if [[ $b = 'master' || $b = 'main' ]]; then
         l+='%F{red}'
     else
         l+='%F{cyan}'
