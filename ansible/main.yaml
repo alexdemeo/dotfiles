@@ -1,0 +1,15 @@
+- name: Dev setup
+  hosts: localhost
+  tasks:
+    - name: Brew
+      ansible.builtin.include_tasks:
+        file: ./brew.yaml
+        apply:
+          tags: install, brew
+      tags: brew
+    - name: OS X Defaults
+      ansible.builtin.include_tasks:
+        file: ./defaults.yaml
+        apply:
+          tags: install, defaults
+      tags: defaults

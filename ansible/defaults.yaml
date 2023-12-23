@@ -1,0 +1,34 @@
+- name: Set clock format in menu bar
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: 'EEE MMM d  H:mm:ss'
+    state: present
+- name: Use scale effect for minimizing windows to dock
+  community.general.osx_defaults:
+    domain: com.apple.Dock
+    key: mineffect
+    type: string
+    value: scale
+    state: present
+- name: Display full POSIX path in Finder window title
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+    state: present
+- name: Show hidden files in Finder
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: string
+    value: true
+    state: present
+- name: Gray out hidden apps in dock
+  community.general.osx_defaults:
+    domain: com.apple.Dock
+    key: showhidden
+    type: bool
+    value: true

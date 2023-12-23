@@ -1,0 +1,38 @@
+- name: Install brew packages
+  community.general.homebrew:
+    name:
+      - gh
+      - starship
+      - yq
+      - zsh-autosuggestions
+      - yarn
+    state: present
+    update_homebrew: true
+  register: brew_result
+- name: Install brew cask packages
+  community.general.homebrew_cask:
+    name:
+      - hammerspoon
+      - firefox
+      - signal
+      - spotify
+      - visual-studio-code
+      - postman
+      - 1password	
+      - docker
+      - postico
+      - brave-browser
+      - sublime-text
+      - tableplus
+      - slack
+      - notion
+      - warp
+    state: present
+    accept_external_apps: true
+  register: brew_cask_result
+- name: Print brew changes summary
+  ansible.builtin.debug:
+    msg: >
+      Brew Summary:
+        Changed Packages: {{ brew_result.changed_pkgs | join(", ") or "None" }}
+        Unchanged Packages: {{ brew_result.unchanged_pkgs | join(", ") or "None" }}
