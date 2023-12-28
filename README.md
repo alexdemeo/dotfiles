@@ -1,5 +1,7 @@
 # Alex's dotfiles
 
+Assumption is that dotfiles is stores at "~/dotfiles"
+
 1. Install homebrew
 
     ```zsh

@@ -1,0 +1,45 @@
+- name: Ensure files exist
+  ansible.builtin.file:
+    path: "{{ item.dest | dirname }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - src: "~/dotfiles/keybindings.json"
+      dest: "~/Library/Application Support/Code/User/keybindings.json"
+    - src: "~/dotfiles/settings.json"
+      dest: "~/Library/Application Support/Code/User/settings.json"
+    - src: "~/dotfiles/init.lua"
+      dest: "~/.hammerspoon/init.lua"
+    - src: "~/dotfiles/.gitconfig"
+      dest: "~/.gitconfig"
+    - src: "~/dotfiles/.zshrc" # will just append a source call to existing .zshrc
+      dest: "~/.zshrc"  
+    - src: "~/dotfiles/.vimrc"
+      dest: "~/.vimrc"
+    - dest: "~/dotfiles/.gitignore"
+- name: Create sym links
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: true
+  loop:
+    - src: "~/dotfiles/keybindings.json"
+      dest: "~/Library/Application Support/Code/User/keybindings.json"
+    - src: "~/dotfiles/settings.json"
+      dest: "~/Library/Application Support/Code/User/settings.json"
+    - src: "~/dotfiles/init.lua"
+      dest: "~/.hammerspoon/init.lua"
+    - src: "~/dotfiles/.vimrc"
+      dest: "~/.vimrc"
+- name: Append source call to existing .zshrc
+  ansible.builtin.lineinfile:
+    path: "~/.zshrc"
+    line: "source ~/dotfiles/.zshrc"
+    create: yes
+    insertafter: EOF
+- name: Set global .gitignore
+  ansible.builtin.git_config:
+    scope: global
+    name: core.excludesfile
+    value: "~/dotfiles/.gitignore"

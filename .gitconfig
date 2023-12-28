@@ -1,0 +1,8 @@
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = Alex DeMeo
+	email = alex.demeo129@gmail.com
+[pull]
+	ff = only
+source ~/dotfiles/.zshrc
