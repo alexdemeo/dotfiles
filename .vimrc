@@ -22,6 +22,10 @@ set expandtab
 set number
 set relativenumber
 
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[1 q" "SR = REPLACE mode
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
+
 nnoremap '<C-d>' '<C-d>zz'
 nnoremap '<C-u>' '<C-u>zz'
 
