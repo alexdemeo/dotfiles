@@ -20,3 +20,8 @@ set shiftwidth=4
 set expandtab
 
 set number
+set relativenumber
+
+nnoremap '<C-d>' '<C-d>zz'
+nnoremap '<C-u>' '<C-u>zz'
+

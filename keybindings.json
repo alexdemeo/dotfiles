@@ -4,5 +4,25 @@
     "key": "alt+cmd+\\",
     "command": "workbench.files.action.showActiveFileInExplorer",
     "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.tasks.reRunTask",
+    "when": "taskCommandsRegistered && !terminalFocus && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.tasks.reRunTask",
+    "when": "taskCommandsRegistered && !terminalFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "workbench.action.debug.run",
+    "when": "debuggersAvailable && !inDebugMode && !terminalFocus && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-workbench.action.debug.run",
+    "when": "debuggersAvailable && !inDebugMode && !terminalFocus"
   }
 ]
