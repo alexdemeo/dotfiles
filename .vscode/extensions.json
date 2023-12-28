@@ -1,0 +1,19 @@
+{
+	"recommendations": [
+		"k--kato.intellij-idea-keybindings",
+		"ms-python.black-formatter",
+		"ms-python.isort",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"dbaeumer.vscode-eslint",
+		"streetsidesoftware.code-spell-checker",
+		"GitHub.copilot",
+		"GitHub.copilot-chat",
+		"eamodio.gitlens",
+		"github.vscode-github-actions",
+		"waderyan.gitblame",
+		"mohsen1.prettify-json",
+		"DavidAnson.vscode-markdownlint",
+		"esbenp.prettier-vscode"
+	]
+}

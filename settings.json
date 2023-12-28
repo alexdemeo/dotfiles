@@ -1,0 +1,9 @@
+{
+    "editor.mouseWheelZoom": true,
+    "eslint.codeActionsOnSave.rules": null,
+    "playwright.reuseBrowser": true,
+    "playwright.showTrace": false,
+    "python.experiments.optOutFrom": [
+        "pythonTestAdapter"
+    ]
+}
