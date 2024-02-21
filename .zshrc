@@ -5,12 +5,24 @@ alias e='exit'
 
 # Begin git util functions
 
+git_main_branch () {
+    git branch | cut -c 3- | grep -E '^master$|^main$'
+}
+
 gg() {
     git add . && git commit -m "$@" && git push
 }
 
 ga() {
     git add . && git commit --amend && git push -f
+}
+
+gri() {
+  main_branch=$(git_main_branch)
+  echo "main branch is $main_branch"
+  merge_base=$(git merge-base $main_branch HEAD)
+  echo "merge base is $merge_base"
+  git rebase -i $merge_base
 }
 
 alias gs='git status'
