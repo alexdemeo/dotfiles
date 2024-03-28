@@ -4,5 +4,7 @@
 	name = Alex DeMeo
 	email = alex.demeo129@gmail.com
 [pull]
-	ff = only
-source ~/dotfiles/.zshrc
+    ff = only
+[core]
+    excludesfile = ~/dotfiles/.gitignore
+

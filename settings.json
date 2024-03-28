@@ -61,5 +61,9 @@
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   },
-  "vim.smartRelativeLine": true
+  "vim.smartRelativeLine": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.terminal.activateEnvInCurrentTerminal": true
 }
