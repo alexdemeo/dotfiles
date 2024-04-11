@@ -1,3 +1,5 @@
 **/.DS_Store
 
 .idea/
+**/control-plane/.sst/types/index.ts
+

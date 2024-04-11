@@ -1,8 +1,9 @@
 {
   "editor.mouseWheelZoom": true,
+  "window.title": "${dirty}${rootPath}${separator}${activeEditorShort}",
+
   "playwright.reuseBrowser": true,
   "playwright.showTrace": false,
-  "python.experiments.optOutFrom": ["pythonTestAdapter"],
 
   "vim.easymotion": true,
   "vim.incsearch": true,
@@ -49,7 +50,6 @@
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
-
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "vim.cursorStylePerMode.visual": "block-outline",
@@ -62,8 +62,10 @@
     "statusBar.debuggingForeground": "#ffffff"
   },
   "vim.smartRelativeLine": true,
+
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "python.terminal.activateEnvInCurrentTerminal": true
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.experiments.optOutFrom": ["pythonTestAdapter"]
 }
