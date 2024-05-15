@@ -67,5 +67,6 @@
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "python.experiments.optOutFrom": ["pythonTestAdapter"]
+  "python.experiments.optOutFrom": ["pythonTestAdapter"],
+  "explorer.autoReveal": "focusNoScroll"
 }

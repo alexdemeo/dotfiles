@@ -31,6 +31,17 @@ alias pp='git pull'
 
 # End git util functions
 
+# cd to a file goes to its directory
+cd() {
+    if [ -f "$*" ]; then
+        builtin cd "$(dirname "$*")"
+    elif [ -z "$*" ]; then # zero length string
+        builtin cd
+    else
+        builtin cd "$*"
+    fi
+}
+
 pi() {
     ssh "pi@pi$@.local"
 }
