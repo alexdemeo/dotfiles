@@ -18,15 +18,14 @@
       - spotify
       - visual-studio-code
       - postman
-      - 1password	
       - docker
-      - postico
       - brave-browser
       - sublime-text
       - tableplus
       - slack
       - notion
       - warp
+      - chagpt
     state: present
     accept_external_apps: true
   register: brew_cask_result
