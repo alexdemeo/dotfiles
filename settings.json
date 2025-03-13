@@ -1,13 +1,10 @@
 {
   "editor.mouseWheelZoom": true,
   "window.title": "${dirty}${rootPath}${separator}${activeEditorShort}",
-
   "playwright.reuseBrowser": true,
   "playwright.showTrace": false,
-
   "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
@@ -29,6 +26,14 @@
       "before": ["K"],
       "commands": ["lineBreakInsert"],
       "silent": true
+    },
+    {
+      "before": ["y"],
+      "after": ["\"", "+", "y"]
+    },
+    {
+      "before": ["p"],
+      "after": ["\"", "+", "p"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -40,6 +45,14 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["y"],
+      "after": ["\"", "+", "y"]
+    },
+    {
+      "before": ["p"],
+      "after": ["\"", "+", "p"]
     }
   ],
   "vim.leader": "<space>",
@@ -55,18 +68,32 @@
   "vim.cursorStylePerMode.visual": "block-outline",
   "vim.statusBarColorControl": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   },
   "vim.smartRelativeLine": true,
-
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
   "python.experiments.optOutFrom": ["pythonTestAdapter"],
-  "explorer.autoReveal": "focusNoScroll"
+  "explorer.autoReveal": "focusNoScroll",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "terminal.external.osxExec": "Warp.app",
+  "vim.vimrc.path": "$HOME/dotfiles/.vimrc",
+  "vim.vimrc.enable": true,
+  "makefile.configureOnOpen": true,
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.db": "default"
+  },
+  "rust-analyzer.hover.actions.references.enable": true,
+  "terminal.integrated.scrollback": 10000,
+  "redhat.telemetry.enabled": false
 }

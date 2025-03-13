@@ -7,4 +7,5 @@
     ff = only
 [core]
     excludesfile = ~/dotfiles/.gitignore
-
+[alias]
+    co = checkout

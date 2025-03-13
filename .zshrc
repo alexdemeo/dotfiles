@@ -2,6 +2,7 @@ alias resource='source ~/.zshrc'
 alias zrc='vim ~/.zshrc'
 alias ls='ls -aL'
 alias e='exit'
+alias code='cursor'
 
 # Begin git util functions
 

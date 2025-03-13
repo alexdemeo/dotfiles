@@ -2,4 +2,5 @@
 
 .idea/
 **/control-plane/.sst/types/index.ts
+**/.cursor/
 
