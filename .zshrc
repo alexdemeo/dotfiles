@@ -18,6 +18,10 @@ ga() {
     git add . && git commit --amend && git push -f
 }
 
+gc() {
+    git add . && git commit -m "$@"
+}
+
 gri() {
   main_branch=$(git_main_branch)
   echo "main branch is $main_branch"

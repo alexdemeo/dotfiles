@@ -28,5 +28,29 @@
   {
     "key": "cmd+;",
     "command": "-workbench.action.tasks.configureTaskRunner"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+; l",
+    "command": "multi.rerunRustNew",
+    "when": "!terminalIsOpen && editorLangId == 'rust'"
+  },
+  {
+    "key": "cmd+; l",
+    "command": "multi.rerunRustReuse",
+    "when": "terminalIsOpen && editorLangId == 'rust'"
+  },
+  {
+    "key": "cmd+; cmd+l",
+    "command": "multi.rerunRustNew",
+    "when": "!terminalIsOpen && editorLangId == 'rust'"
+  },
+  {
+    "key": "cmd+; cmd+l",
+    "command": "multi.rerunRustReuse",
+    "when": "terminalIsOpen && editorLangId == 'rust'"
   }
 ]

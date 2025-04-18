@@ -4,7 +4,7 @@
 	name = Alex DeMeo
 	email = alex.demeo129@gmail.com
 [pull]
-    ff = only
+    ff = false
 [core]
     excludesfile = ~/dotfiles/.gitignore
 [alias]
