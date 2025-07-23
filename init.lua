@@ -294,4 +294,21 @@ end
 
 hs.hotkey.bind(mash, "\\", toggleScrollDirection)
 
+function getSelectedText()
+  local originalClipboard = hs.pasteboard.getContents()
+  hs.pasteboard.clearContents()
+  hs.eventtap.keyStroke({ "cmd" }, "c", 0.2)
+  hs.timer.usleep(200000)
+  local newText = hs.pasteboard.getContents()
+  hs.pasteboard.setContents(originalClipboard)
+  return newText
+end
+
+hs.hotkey.bind(mash, "p", function()
+  local prompt = getSelectedText()
+  local result = hs.execute("~/dotfiles/.venv/bin/python3 ~/dotfiles/python/meta_prompt.py '" .. prompt .. "'", false)
+  hs.pasteboard.setContents(result)
+  alert("Prompt generated and saved to clipboard")
+end)
+
 alert("Config loaded")
