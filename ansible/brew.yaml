@@ -25,7 +25,8 @@
       - slack
       - notion
       - warp
-      - chagpt
+      - chatgpt
+      - cursor
     state: present
     accept_external_apps: true
   register: brew_cask_result
