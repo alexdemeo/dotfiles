@@ -307,6 +307,7 @@ end
 hs.hotkey.bind(mash, "p", function()
   local prompt = getSelectedText()
   local result = hs.execute("~/dotfiles/.venv/bin/python3 ~/dotfiles/python/meta_prompt.py '" .. prompt .. "'", false)
+  print(result)
   hs.pasteboard.setContents(result)
   alert("Prompt generated and saved to clipboard")
 end)

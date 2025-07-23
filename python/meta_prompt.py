@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# https://platform.openai.com/docs/guides/prompt-generation/meta-prompts?meta-prompt=text-out
 
 import os
 import sys
@@ -58,7 +58,7 @@ The final prompt you output should adhere to the following structure below. Do n
 
 def generate_prompt(task_or_prompt: str):
     completion = client.chat.completions.create(
-        model="gpt-4o",
+        model="o3-mini",
         messages=[
             {
                 "role": "system",
