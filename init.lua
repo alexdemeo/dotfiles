@@ -280,8 +280,8 @@ function toggleScrollDirection()
     delay 0.5
 
     tell application "System Events" to tell process "System Settings"
-      click radio button 2 of tab group 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Trackpad"
-      click checkbox 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Trackpad"
+      click radio button 2 of tab group 1 of group 1 of group 3 of splitter group 1 of group 1 of window "Trackpad"
+      click checkbox 1 of group 1 of scroll area 1 of group 1 of group 3 of splitter group 1 of group 1 of window "Trackpad"
     end tell
 
     delay 0.5

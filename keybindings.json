@@ -58,13 +58,5 @@
     "key": "cmd+right",
     "command": "-editor.action.inlineSuggest.acceptNextWord",
     "when": "cppSuggestion && !editorReadonly || inlineSuggestionVisible && !editorReadonly"
-  },
-  {
-    "key": "cmd+e",
-    "command": "composerMode.background"
-  },
-  {
-    "key": "cmd+e",
-    "command": "composerMode.background"
   }
 ]

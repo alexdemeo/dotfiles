@@ -58,7 +58,7 @@ The final prompt you output should adhere to the following structure below. Do n
 
 def generate_prompt(task_or_prompt: str):
     completion = client.chat.completions.create(
-        model="o3-mini",
+        model="gpt-5",
         messages=[
             {
                 "role": "system",
