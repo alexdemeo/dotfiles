@@ -20,7 +20,7 @@ set shiftwidth=4
 set expandtab
 
 set number
-set relativenumber
+" set relativenumber
 
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[1 q" "SR = REPLACE mode
