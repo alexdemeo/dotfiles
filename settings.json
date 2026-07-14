@@ -10,69 +10,69 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "d"],
-      "after": ["d", "d"]
+      "after": ["d", "d"],
     },
     {
       "before": ["<C-n>"],
-      "commands": [":nohl"]
+      "commands": [":nohl"],
     },
     {
       "before": ["K"],
       "commands": ["lineBreakInsert"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["y"],
-      "after": ["\"", "+", "y"]
+      "after": ["\"", "+", "y"],
     },
     {
       "before": ["p"],
-      "after": ["\"", "+", "p"]
-    }
+      "after": ["\"", "+", "p"],
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // Bind > and < in visual mode to indent/outdent lines (repeatable)
     {
       "before": [">"],
-      "commands": ["editor.action.indentLines"]
+      "commands": ["editor.action.indentLines"],
     },
     {
       "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
+      "commands": ["editor.action.outdentLines"],
     },
     {
       "before": ["y"],
-      "after": ["\"", "+", "y"]
+      "after": ["\"", "+", "y"],
     },
     {
       "before": ["p"],
-      "after": ["\"", "+", "p"]
-    }
+      "after": ["\"", "+", "p"],
+    },
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
   },
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+    "vscodevim.vim": 1,
   },
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "vim.cursorStylePerMode.visual": "block-outline",
   "vim.statusBarColorControl": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000",
     "statusBar.foreground": "#ffffff",
-    "statusBar.debuggingForeground": "#ffffff"
+    "statusBar.debuggingForeground": "#ffffff",
   },
   "vim.smartRelativeLine": true,
   "python.analysis.inlayHints.functionReturnTypes": true,
@@ -87,14 +87,14 @@
   "vim.vimrc.enable": true,
   "makefile.configureOnOpen": true,
   "[rust]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
-    "*.db": "default"
+    "*.db": "default",
   },
   "rust-analyzer.hover.actions.references.enable": true,
   "terminal.integrated.scrollback": 10000,
   "redhat.telemetry.enabled": false,
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
 }
