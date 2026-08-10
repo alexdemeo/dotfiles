@@ -68,11 +68,11 @@
   "vim.cursorStylePerMode.visual": "block-outline",
   "vim.statusBarColorControl": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
     "statusBar.foreground": "#ffffff",
-    "statusBar.debuggingForeground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff"
   },
   "vim.smartRelativeLine": true,
   "python.analysis.inlayHints.functionReturnTypes": true,
@@ -97,4 +97,6 @@
   "terminal.integrated.scrollback": 10000,
   "redhat.telemetry.enabled": false,
   "python.languageServer": "Pylance",
+  "security.promptForLocalFileProtocolHandling": false,
+  "jdk.telemetry.enabled": false,
 }
