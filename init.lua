@@ -271,25 +271,23 @@ usbWatcher = hs.screen.watcher.new(function()
   print("switched to move", mode)
 end):start()
 
+-- Flips natural scrolling through the private PreferencePanesSupport API instead of
+-- clicking through System Settings, so it doesn't break when the window layout changes
 function toggleScrollDirection()
-  script = [[
-    tell application "System Settings"
-      do shell script "open x-apple.systempreferences:com.apple.Trackpad-Settings.extension"
-    end tell
-
-    delay 0.5
-
-    tell application "System Events" to tell process "System Settings"
-      click radio button 2 of tab group 1 of group 1 of group 3 of splitter group 1 of group 1 of window "Trackpad"
-      click checkbox 1 of group 1 of scroll area 1 of group 1 of group 3 of splitter group 1 of group 1 of window "Trackpad"
-    end tell
-
-    delay 0.5
-
-    quit application "System Settings"
-
-  ]]
-  hs.osascript.applescript(script)
+  local script = [=[
+    ObjC.import("Foundation");
+    $.NSBundle.bundleWithPath("/System/Library/PrivateFrameworks/PreferencePanesSupport.framework").load;
+    ObjC.bindFunction("swipeScrollDirection", ["bool", []]);
+    ObjC.bindFunction("setSwipeScrollDirection", ["void", ["bool"]]);
+    $.setSwipeScrollDirection(!$.swipeScrollDirection());
+    $.swipeScrollDirection();
+  ]=]
+  local ok, natural = hs.osascript.javascript(script)
+  if ok then
+    alert("Natural scrolling " .. (natural and "on" or "off"))
+  else
+    alert("Failed to toggle scroll direction")
+  end
 end
 
 hs.hotkey.bind(mash, "\\", toggleScrollDirection)
