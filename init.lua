@@ -271,26 +271,56 @@ usbWatcher = hs.screen.watcher.new(function()
   print("switched to move", mode)
 end):start()
 
--- Flips natural scrolling through the private PreferencePanesSupport API instead of
+-- Sets natural scrolling through the private PreferencePanesSupport API instead of
 -- clicking through System Settings, so it doesn't break when the window layout changes
-function toggleScrollDirection()
+function setNaturalScrolling(natural)
   local script = [=[
     ObjC.import("Foundation");
     $.NSBundle.bundleWithPath("/System/Library/PrivateFrameworks/PreferencePanesSupport.framework").load;
-    ObjC.bindFunction("swipeScrollDirection", ["bool", []]);
     ObjC.bindFunction("setSwipeScrollDirection", ["void", ["bool"]]);
-    $.setSwipeScrollDirection(!$.swipeScrollDirection());
-    $.swipeScrollDirection();
+    $.setSwipeScrollDirection(]=] .. tostring(natural) .. [=[);
   ]=]
-  local ok, natural = hs.osascript.javascript(script)
-  if ok then
-    alert("Natural scrolling " .. (natural and "on" or "off"))
-  else
-    alert("Failed to toggle scroll direction")
-  end
+  hs.osascript.javascript(script)
 end
 
-hs.hotkey.bind(mash, "\\", toggleScrollDirection)
+-- Natural scrolling stays on for the trackpad, and scroll events from wheel mice get
+-- flipped back to regular. Trackpads send continuous scroll events, wheel mice don't
+scrollProps = hs.eventtap.event.properties
+mouseScrollFields = {
+  scrollProps.scrollWheelEventDeltaAxis1,
+  scrollProps.scrollWheelEventDeltaAxis2,
+  scrollProps.scrollWheelEventFixedPtDeltaAxis1,
+  scrollProps.scrollWheelEventFixedPtDeltaAxis2,
+  scrollProps.scrollWheelEventPointDeltaAxis1,
+  scrollProps.scrollWheelEventPointDeltaAxis2,
+}
+
+mouseScrollReverser = hs.eventtap.new({ hs.eventtap.event.types.scrollWheel }, function(event)
+  if event:getProperty(scrollProps.scrollWheelEventIsContinuous) == 0 then
+    -- read everything before writing, since setting one delta can recompute the others
+    local deltas = {}
+    for i, field in ipairs(mouseScrollFields) do
+      deltas[i] = event:getProperty(field)
+    end
+    for i, field in ipairs(mouseScrollFields) do
+      event:setProperty(field, -deltas[i])
+    end
+  end
+  return false
+end)
+
+setNaturalScrolling(true)
+mouseScrollReverser:start()
+
+hs.hotkey.bind(mash, "\\", function()
+  if mouseScrollReverser:isEnabled() then
+    mouseScrollReverser:stop()
+    alert("Mouse scroll reversal off")
+  else
+    mouseScrollReverser:start()
+    alert("Mouse scroll reversal on")
+  end
+end)
 
 function getSelectedText()
   local originalClipboard = hs.pasteboard.getContents()
